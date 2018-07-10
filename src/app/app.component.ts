@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  routes: Array<Route> = [];
+  
+  constructor(private router: Router) {
+    this.routes = this.router.config;
+  }
 }

@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="reglist">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Vendor Name</th>
+        <th>Model Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let model of models; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ model.vendor.vendorName }}</td>
+        <td>{{ model.modelName }}</td>
+        <td>
+          <!--<button type="button" class="btn btn-info" (click)="onEdit(model)">Edit</button>-->
+        </td>
+        <td>
+          <!--<button type="button" class="btn btn-danger" (click)="onDelete(i)">Delete</button>-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!--<div class="text-right">
+      <button type="submit" class="btn btn-primary" (click)="onNew()">New</button>
+    </div>-->
+  </div>
+  <br>
+  <div class="regentry" *ngIf="showNew">
+    <form (ngSubmit)="onSave()">
+      <div class="form-group row">
+        <label for="vendor-name-input" class="col-2 col-form-label">Vendor Name</label>
+        <div class="col-10">
+          <input id="vendor-name-input" class="form-control"
+                 type="text" [(ngModel)]="vendorModel.vendorName" name="vendorName">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">{{submitType}}</button>
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </form>
+  </div>
+</div>
